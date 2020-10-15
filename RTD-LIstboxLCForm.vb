@@ -1,37 +1,20 @@
-﻿Public Class Form1
+﻿Option Strict On
+Option Explicit On
+Option Compare Text
+
+'Lane Coleman
+'RCET 0265
+'Fall 2020
+'Roll The Dice - List Box Edition
+'https://github.com/colelane/RTD-ListboxLC
+
+Public Class Form1
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
 
     Private Sub RollButton_Click(sender As Object, e As EventArgs) Handles RollButton.Click
-        Randomize()
-        Dim randomNumber As Integer
-        Dim txt1, txt2, dashes As String
-        Dim data(10) As Integer
-
-
-        For i = 1 To 1000
-            randomNumber = CInt(GetRandomNumber(1, 6))
-            data(randomNumber - 2) += 1
-            'has to be randomnumber - 2 or it would be outside the bounds of the array.
-        Next
-
-        For i = 2 To 12
-            txt1 = txt1 & String.Format("{0, 11}", i) & "|"
-        Next
-
-        RTDListBox.Items.Add("Numbers:       " & txt1)
-        dashes = (StrDup(177, "-"))
-        RTDListBox.Items.Add(dashes)
-
-        For i = 0 To 10
-            txt2 = txt2 & String.Format("{0,10}", data(i)) & "|"
-        Next
-
-        RTDListBox.Items.Add("Times Rolled:" & txt2)
-        RTDListBox.Items.Add(dashes)
-        RTDListBox.Items.Add("")
-        RTDListBox.Items.Add("")
+        Roll()
     End Sub
     Function GetRandomNumber(ByVal minimum As Single,
                              ByVal maximum As Single) As Single
@@ -54,4 +37,56 @@
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
         RTDListBox.Items.Clear()
     End Sub
+
+    Sub Roll()
+        Randomize()
+        Dim randomNumber As Integer
+        Dim txt1, txt2, dashes As String
+        Dim data(10) As Integer
+
+
+        For i = 1 To 1000
+            randomNumber = CInt(GetRandomNumber(1, 6))
+            data(randomNumber - 2) += 1
+            'has to be randomnumber - 2 or it would be outside the bounds of the array.
+        Next
+
+        For i = 2 To 12
+            txt1 = txt1 & String.Format("{0, 11}", "| " & i) & " |"
+        Next
+
+        RTDListBox.Items.Add("Numbers:       " & txt1)
+        dashes = (StrDup(177, "-"))
+        RTDListBox.Items.Add(dashes)
+
+        For i = 0 To 10
+            txt2 = txt2 & String.Format("{0,10}", "| " & data(i)) & " |"
+        Next
+
+        RTDListBox.Items.Add("Times Rolled:" & txt2)
+        RTDListBox.Items.Add(dashes)
+        RTDListBox.Items.Add("")
+        RTDListBox.Items.Add("")
+    End Sub
+
+    Private Sub ClearToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ClearToolStripMenuItem.Click
+        RTDListBox.Items.Clear()
+    End Sub
+
+    Private Sub RollToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RollToolStripMenuItem.Click
+        Roll()
+    End Sub
+
+    Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
+        Me.Close()
+    End Sub
+
+    Private Sub IveFallenAndICantGetUpToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles IveFallenAndICantGetUpToolStripMenuItem.Click
+        RTDListBox.Items.Add("Come on man just push the buttons.")
+    End Sub
+
+    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ActiveControl = RollButton
+    End Sub
 End Class
+
