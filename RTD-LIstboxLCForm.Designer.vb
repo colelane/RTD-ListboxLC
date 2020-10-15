@@ -40,12 +40,12 @@ Partial Class Form1
         '
         'RTDListBox
         '
-        Me.RTDListBox.Font = New System.Drawing.Font("Consolas", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RTDListBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 7.875!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.RTDListBox.FormattingEnabled = True
-        Me.RTDListBox.ItemHeight = 24
+        Me.RTDListBox.ItemHeight = 25
         Me.RTDListBox.Location = New System.Drawing.Point(120, 41)
         Me.RTDListBox.Name = "RTDListBox"
-        Me.RTDListBox.Size = New System.Drawing.Size(1067, 556)
+        Me.RTDListBox.Size = New System.Drawing.Size(1067, 579)
         Me.RTDListBox.TabIndex = 0
         Me.ToolTip1.SetToolTip(Me.RTDListBox, "This display keeps track of the dice rolls")
         '
