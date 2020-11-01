@@ -8,7 +8,7 @@ Option Compare Text
 'Roll The Dice - List Box Edition
 'https://github.com/colelane/RTD-ListboxLC
 
-Public Class Form1
+Public Class Form1 'Class Name - TJR
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
         Me.Close()
     End Sub
@@ -35,7 +35,7 @@ Public Class Form1
     End Function
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
-        RTDListBox.Items.Clear()
+        RTDListBox.Items.Clear() ' Avoid abbreviations in control names - TJR
     End Sub
 
     Sub Roll()
